@@ -1,0 +1,15 @@
+{
+  "name": "voteSmart",
+  "description": "VoteSmart Backend Server",
+  "main": "backendServer.js",
+  "scripts": {
+    "start": "node backendServer.js"
+  },
+  "dependencies": {
+    "absorb": "^1.0.1",
+    "body-parser": "*",
+    "deep-equal": "*",
+    "express.io": "*",
+    "mysql": "^2.9.0"
+  }
+}
