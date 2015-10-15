@@ -44,10 +44,10 @@ var question = {
 module.exports = question;
 
 /*var mysql_connection = mysql.createConnection({
-  host     : '192.185.35.74',
-  user     : 'pmphotog_buscent',
-  password : 'trackSumBuses12',
-  database : 'pmphotog_buscentral'
+  host     : '',
+  user     : '',
+  password : '',
+  database : ''
 });
 
 mysql_connection.connect();
