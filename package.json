@@ -6,6 +6,7 @@
     "start": "node backendServer.js"
   },
   "dependencies": {
+    "object-filter": "*",
     "absorb": "^1.0.1",
     "body-parser": "*",
     "deep-equal": "*",
