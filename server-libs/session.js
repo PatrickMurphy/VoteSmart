@@ -18,16 +18,30 @@ var session = {
             }
         },
     getList: function(req, res){
+        var response = session.sessions;
         res.setHeader('Content-Type', 'application/json');
 
-       if(req.query.hasOwnProperty('group') && isNumeric(req.query.group)){
-           var response = objFilter(session.sessions, function(v,k){
-               return v.group == req.query.group;
+       if(req.query.hasOwnProperty('group') && isNumeric(req.query['group'])){
+           response = objFilter(response, function(v,k){
+               return v['group'] == req.query['group'];
            });
-           res.send(response);
-       }else{
-        res.send(session.sessions);
        }
+       if(req.query.hasOwnProperty('owner') && isNumeric(req.query['owner'])){
+           response = objFilter(response, function(v,k){
+               return v['owner'] == req.query['owner'];
+           });
+       }
+       if(req.query.hasOwnProperty('start_time')){
+           response = objFilter(response, function(v,k){
+               return new Date(v.times.start).getTime() >= new Date(req.query['start_time']).getTime();
+           });
+       }
+       if(req.query.hasOwnProperty('end_time')){
+           response = objFilter(response, function(v,k){
+               return new Date(v.times.end).getTime() <= new Date(req.query['end_time']).getTime();
+           });
+       }
+       res.send(response);
     },
     get: function(req, res){
         res.setHeader('Content-Type', 'application/json');
